@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: books-dir
+spec:
+  selector:
+    app: books-dir
+  ports:
+    - protocol: TCP
+      port: 5001  # Port to access the service from outside the cluster
+      targetPort: 5000  # Port your Node.js app listens on
+  type: LoadBalancer  # Expose the service publicly using the load balancer (you can change it based on your needs)
